@@ -8,8 +8,12 @@ describe "Static pages" do
     it "should have the right title" do
   visit '/static_pages/home'
   page.should have_selector('title',
-                    :text => "nuapp2 by webber of jilinsights | Home")
+                    :text => "nuapp2 by chriso")
 end
+  it "should not have a custom page title" do
+    visit '/static_pages/home'
+    page.should_not have_selector('title', :text => '| Home')
+  end
 
   end
   describe "Help page" do
@@ -20,7 +24,7 @@ end
      it "should have the right title" do
   visit '/static_pages/help'
   page.should have_selector('title',
-                    :text => "nuapp2 by webber of jilinsights | Help")
+                    :text => "nuapp2 by chriso | Help")
 end
 
   end
@@ -32,7 +36,7 @@ end
      it "should have the right title" do
   visit '/static_pages/about'
   page.should have_selector('title',
-                    :text => "nuapp2 by webber of jilinsights | About Us")
+                    :text => "nuapp2 by chriso | About Us")
 end
 
   end
